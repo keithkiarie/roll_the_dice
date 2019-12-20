@@ -12,8 +12,10 @@ namespace roll_the_dice
             Console.WriteLine("Roll any number of dice and give us the sum of their outcomes and we will tell you every possible combination that you could have gotten\n");
 
 
-            
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Press Enter to run the program or any other key to exit\n");
+            Console.ResetColor();
+
             while(Console.ReadKey().Key == ConsoleKey.Enter)
             {
                 //Get and validate the number of dice rolled
@@ -51,7 +53,9 @@ namespace roll_the_dice
                 //Get the combinations
                 Calculator(no_of_dice, total_outcome);
 
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Press Enter to run the program again or any other key to exit\n");
+                Console.ResetColor();
             }
         }
 
