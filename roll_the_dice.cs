@@ -51,6 +51,21 @@ namespace roll_the_dice
 
         public static void Calculator(int no_of_dice, int total_outcome)
         {
+            if (no_of_dice == 0)
+            {
+                Console.WriteLine("0 combinations");
+            }
+            else if (no_of_dice == 1)
+            {
+                Console.WriteLine($"Combination 1: {total_outcome}");
+            }
+            else if (no_of_dice > total_outcome)
+            {
+                Console.WriteLine($"Total outcome cannot be less than {no_of_dice} for {no_of_dice} dice since each die has a minimum value of 1");
+            }
+
+
+
             int outcomes = 0; //counts the number of outcomes
 
             int[] dice_outcomes = new int[no_of_dice]; //stores the value of each dice
@@ -64,7 +79,7 @@ namespace roll_the_dice
 
             //hold dice in pairs. Increase the value to the maximum before increasing the value of the adjacent by 1 and reinitilizing the all preceeding
             int x = 0;
-            while (true)
+            while (no_of_dice > 1 && no_of_dice <= total_outcome)
             {
                 while (dice_outcomes[x + 1] <= 6)
                 {
