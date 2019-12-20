@@ -67,11 +67,11 @@ namespace roll_the_dice
             }
             else if (no_of_dice == 1)
             {
-                Console.WriteLine($"Combination 1: {total_outcome}");
+                Console.WriteLine("Combination 1: " + total_outcome);
             }
             else if (no_of_dice > total_outcome)
             {
-                Console.WriteLine($"Total outcome cannot be less than {no_of_dice} for {no_of_dice} dice since each die has a minimum value of 1");
+                Console.WriteLine("Total outcome cannot be less than " + no_of_dice + " for " + no_of_dice + " dice since each die has a minimum value of 1");
             }
 
 
@@ -99,7 +99,7 @@ namespace roll_the_dice
 
                         if (sum == total_outcome)
                         {
-                            Console.WriteLine($"Outcome {++outcomes}: {String.Join(" + ", dice_outcomes)}");
+                            Console.WriteLine("Outcome " + ++outcomes + ": " + String.Join(" + ", dice_outcomes));
                         }
                         else if (sum > total_outcome)
                         {
