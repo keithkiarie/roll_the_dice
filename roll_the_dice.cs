@@ -92,6 +92,7 @@ namespace roll_the_dice
                 dice_outcomes[x + 1] = 1;
                 if (x + 1 < dice_outcomes.Length - 1)
                 {
+                    dice_outcomes[x + 2] = 2;
                     x++;
                 }
                 else
