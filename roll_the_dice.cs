@@ -51,17 +51,18 @@ namespace roll_the_dice
 
         public static void Calculator(int no_of_dice, int total_outcome)
         {
-            int outcomes = 0;
+            int outcomes = 0; //counts the number of outcomes
 
-            int[] dice_outcomes = new int[no_of_dice];
+            int[] dice_outcomes = new int[no_of_dice]; //stores the value of each dice
 
+            //initializing the value of each dice to 1
             for (int i = 0; i < no_of_dice; i++)
             {
                 dice_outcomes[i] = 1;
             }
 
 
-
+            //hold dice in pairs. Increase the value to the maximum before increasing the value of the adjacent by 1 and reinitilizing the all preceeding
             int x = 0;
             while (true)
             {
@@ -84,6 +85,8 @@ namespace roll_the_dice
                     }
                     dice_outcomes[x] = 1;
                     dice_outcomes[x + 1]++;
+
+                    if (dice_outcomes.Sum() > total_outcome) break;
                 }
 
                 dice_outcomes[x + 1] = 1;
