@@ -130,6 +130,9 @@ namespace roll_the_dice
                 }
             }
 
+            if (no_of_dice > 1 && no_of_dice <= total_outcome && no_of_dice * 6 >= total_outcome)
+                Console.WriteLine(outcomes == 1 ? "\n" + outcomes + " outcome" : "\n" + outcomes + " outcomes");
+
         }
     }
 }
