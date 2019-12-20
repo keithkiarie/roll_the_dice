@@ -16,7 +16,7 @@ namespace roll_the_dice
             Console.WriteLine("Press Enter to run the program or any other key to exit\n");
             Console.ResetColor();
 
-            while(Console.ReadKey().Key == ConsoleKey.Enter)
+            while (Console.ReadKey().Key == ConsoleKey.Enter)
             {
                 //Get and validate the number of dice rolled
                 Console.WriteLine("How many dice have you rolled?");
@@ -54,7 +54,7 @@ namespace roll_the_dice
                 Calculator(no_of_dice, total_outcome);
 
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("Press Enter to run the program again or any other key to exit\n");
+                Console.WriteLine("\nPress Enter to run the program again or any other key to exit\n");
                 Console.ResetColor();
             }
         }
@@ -73,6 +73,10 @@ namespace roll_the_dice
             {
                 Console.WriteLine("Total outcome cannot be less than " + no_of_dice + " for " + no_of_dice + " dice since each die has a minimum value of 1");
             }
+            else if (no_of_dice * 6 < total_outcome)
+            {
+                Console.WriteLine(no_of_dice + " dice cannot give a total of " + total_outcome);
+            }
 
 
 
@@ -89,7 +93,7 @@ namespace roll_the_dice
 
             //hold dice in pairs. Increase the value to the maximum before increasing the value of the adjacent by 1 and reinitilizing the all preceeding
             int x = 0;
-            while (no_of_dice > 1 && no_of_dice <= total_outcome)
+            while (no_of_dice > 1 && no_of_dice <= total_outcome && no_of_dice * 6 >= total_outcome)
             {
                 while (dice_outcomes[x + 1] <= 6)
                 {
