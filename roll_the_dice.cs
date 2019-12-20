@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace roll_the_dice
 {
@@ -25,7 +26,7 @@ namespace roll_the_dice
                     converted = int.TryParse(Console.ReadLine(), out no_of_dice);
                 }
             }
-  
+
 
             //Get and validate the total outcome of the dice rolled
             Console.WriteLine("What was the total outcome?");
@@ -41,15 +42,61 @@ namespace roll_the_dice
                     converted = int.TryParse(Console.ReadLine(), out total_outcome);
                 }
             }
-                
-                    
+
+
             //Get the combinations
             Calculator(no_of_dice, total_outcome);
+
         }
 
         public static void Calculator(int no_of_dice, int total_outcome)
         {
-            Console.WriteLine($"Successful: {no_of_dice}, {total_outcome}");
+            int outcomes = 0;
+
+            int[] dice_outcomes = new int[no_of_dice];
+
+            for (int i = 0; i < no_of_dice; i++)
+            {
+                dice_outcomes[i] = 1;
+            }
+
+
+
+            int x = 0;
+            while (true)
+            {
+                while (dice_outcomes[x + 1] <= 6)
+                {
+                    while (dice_outcomes[x] <= 6)
+                    {
+                        int sum = dice_outcomes.Sum();
+
+                        if (sum == total_outcome)
+                        {
+                            Console.WriteLine($"Outcome {++outcomes}: {String.Join(" + ", dice_outcomes)}");
+                        }
+                        else if (sum > total_outcome)
+                        {
+                            break;
+                        }
+
+                        dice_outcomes[x]++;
+                    }
+                    dice_outcomes[x] = 1;
+                    dice_outcomes[x + 1]++;
+                }
+
+                dice_outcomes[x + 1] = 1;
+                if (x + 1 < dice_outcomes.Length - 1)
+                {
+                    x++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
         }
     }
 }
