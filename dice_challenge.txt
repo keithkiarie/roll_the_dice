@@ -1,0 +1,15 @@
+Roll the Dice
+Las Vegas style dice have 6 sides numbered 1 to 6. When rolling 2 dice, 
+a six is 5 times more likely then a two because a six can be rolled 5 
+different ways (1 + 5, 5 + 1, 2 + 4, 4 + 2, 3 + 3), while a two can only
+be rolled. 1 way (1 + 1).
+
+Create a function that accepts two arguments, the number of dice rolled, 
+and the outcome of the roll. The function returns the number of possible 
+combinations that could produce that outcome. The number of dice can vary 
+from 1 to 6.
+
+For the example given above:
+
+diceRoll(2, 6) would return 5
+diceRoll(2, 2) would return 1
