@@ -6,10 +6,12 @@ namespace roll_the_dice
     {
         static void Main(string[] args)
         {
+            //Introduction
             Console.WriteLine("Welcome to Roll The Dice!");
             Console.WriteLine("Roll any number of dice and give us the sum of their outcomes and we will tell you every possible combination that you could have gotten\n");
 
 
+            //Get and validate the number of dice rolled
             Console.WriteLine("How many dice have you rolled?");
 
             int no_of_dice;
@@ -25,6 +27,7 @@ namespace roll_the_dice
             }
   
 
+            //Get and validate the total outcome of the dice rolled
             Console.WriteLine("What was the total outcome?");
 
             int total_outcome;
@@ -40,7 +43,7 @@ namespace roll_the_dice
             }
                 
                     
-
+            //Get the combinations
             Calculator(no_of_dice, total_outcome);
         }
 
