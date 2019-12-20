@@ -12,41 +12,47 @@ namespace roll_the_dice
             Console.WriteLine("Roll any number of dice and give us the sum of their outcomes and we will tell you every possible combination that you could have gotten\n");
 
 
-            //Get and validate the number of dice rolled
-            Console.WriteLine("How many dice have you rolled?");
-
-            int no_of_dice;
-            bool converted = int.TryParse(Console.ReadLine(), out no_of_dice);
-
-            if (!converted)
+            
+            Console.WriteLine("Press Enter to run the program or any other key to exit\n");
+            while(Console.ReadKey().Key == ConsoleKey.Enter)
             {
-                while (!converted)
+                //Get and validate the number of dice rolled
+                Console.WriteLine("How many dice have you rolled?");
+
+                int no_of_dice;
+                bool converted = int.TryParse(Console.ReadLine(), out no_of_dice);
+
+                if (!converted)
                 {
-                    Console.WriteLine("Please input a number\nHow many dice have you rolled?");
-                    converted = int.TryParse(Console.ReadLine(), out no_of_dice);
+                    while (!converted)
+                    {
+                        Console.WriteLine("Please input a number\nHow many dice have you rolled?");
+                        converted = int.TryParse(Console.ReadLine(), out no_of_dice);
+                    }
                 }
-            }
 
 
-            //Get and validate the total outcome of the dice rolled
-            Console.WriteLine("What was the total outcome?");
+                //Get and validate the total outcome of the dice rolled
+                Console.WriteLine("What was the total outcome?");
 
-            int total_outcome;
-            converted = int.TryParse(Console.ReadLine(), out total_outcome);
+                int total_outcome;
+                converted = int.TryParse(Console.ReadLine(), out total_outcome);
 
-            if (!converted)
-            {
-                while (!converted)
+                if (!converted)
                 {
-                    Console.WriteLine("Please input a number\nWhat was the total outcome?");
-                    converted = int.TryParse(Console.ReadLine(), out total_outcome);
+                    while (!converted)
+                    {
+                        Console.WriteLine("Please input a number\nWhat was the total outcome?");
+                        converted = int.TryParse(Console.ReadLine(), out total_outcome);
+                    }
                 }
+
+
+                //Get the combinations
+                Calculator(no_of_dice, total_outcome);
+
+                Console.WriteLine("Press Enter to run the program again or any other key to exit\n");
             }
-
-
-            //Get the combinations
-            Calculator(no_of_dice, total_outcome);
-
         }
 
         public static void Calculator(int no_of_dice, int total_outcome)
