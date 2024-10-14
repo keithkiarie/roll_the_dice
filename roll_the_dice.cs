@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace roll_the_dice
 {
-    class Program
+    class RollTheDice
     {
-        static void Main(string[] args)
+        //Introduction
+        public void Roll()
         {
-            //Introduction
             Console.WriteLine("Welcome to Roll The Dice!");
             Console.WriteLine("Roll any number of dice and give us the sum of their outcomes and we will tell you every possible combination that you could have gotten\n");
 
@@ -59,23 +59,31 @@ namespace roll_the_dice
             }
         }
 
+        //brute force
         public static void Calculator(int no_of_dice, int total_outcome)
         {
             if (no_of_dice == 0)
             {
-                Console.WriteLine("0 combinations");
+                Console.WriteLine("Please enter an appropriate number of dice");
+                return;
             }
-            else if (no_of_dice == 1)
+            if (no_of_dice == 1)
             {
                 Console.WriteLine("Combination 1: " + total_outcome);
+                return;
             }
-            else if (no_of_dice > total_outcome)
+            if (no_of_dice > total_outcome)
             {
                 Console.WriteLine("Total outcome cannot be less than " + no_of_dice + " for " + no_of_dice + " dice since each die has a minimum value of 1");
+                return;
             }
-            else if (no_of_dice * 6 < total_outcome)
+
+            var largestPossible = no_of_dice * 6;
+
+            if (largestPossible < total_outcome)
             {
                 Console.WriteLine(no_of_dice + " dice cannot give a total of " + total_outcome);
+                return;
             }
 
 
@@ -93,7 +101,7 @@ namespace roll_the_dice
 
             //hold dice in pairs. Increase the value to the maximum before increasing the value of the adjacent by 1 and reinitilizing the all preceeding
             int x = 0;
-            while (no_of_dice > 1 && no_of_dice <= total_outcome && no_of_dice * 6 >= total_outcome)
+            while (no_of_dice > 1 && no_of_dice <= total_outcome && largestPossible >= total_outcome)
             {
                 while (dice_outcomes[x + 1] <= 6)
                 {
@@ -130,7 +138,7 @@ namespace roll_the_dice
                 }
             }
 
-            if (no_of_dice > 1 && no_of_dice <= total_outcome && no_of_dice * 6 >= total_outcome)
+            if (no_of_dice > 1 && no_of_dice <= total_outcome && largestPossible >= total_outcome)
                 Console.WriteLine(outcomes == 1 ? "\n" + outcomes + " outcome" : "\n" + outcomes + " outcomes");
 
         }
