@@ -1,1 +1,4 @@
 *.exe
+/.vs
+/obj
+/bin/Debug/net9.0
